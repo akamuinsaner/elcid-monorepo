@@ -1,4 +1,5 @@
 import './global.css';
+import Wrapper from '../components/Wrapper';
 
 export const metadata = {
   title: 'Welcome to e-commerce',
@@ -12,7 +13,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Wrapper>{children}</Wrapper>
+      </body>
     </html>
   );
 }
