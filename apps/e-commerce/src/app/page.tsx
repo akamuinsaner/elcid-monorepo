@@ -10,6 +10,7 @@ export default function Index() {
     <>
       <ECommerce.HeroSection />
       <ECommerce.ProductGridSection />
+      <ECommerce.CollectionSection />
     </>
   );
 }

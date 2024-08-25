@@ -1,8 +1,8 @@
 import { Button } from '@elcid-monorepo/widgets';
-import { IProduct } from '@elcid-monorepo/types';
+import { TECommerce } from '@elcid-monorepo/types';
 import ProductCard from '../ProductCard';
 
-const PRODUCT_LIST: IProduct[] = [
+const PRODUCT_LIST: TECommerce.IProduct[] = [
   {
     id: 1,
     image: '/mock/1.jpg',
@@ -76,7 +76,7 @@ const PRODUCT_LIST: IProduct[] = [
 const ProductGridSection = ({
   productList = PRODUCT_LIST,
 }: {
-  productList?: IProduct[];
+  productList?: TECommerce.IProduct[];
 }) => {
   return (
     <section className="px-3 py-12 tablet:px-4 tablet:py-16 desktop:px-24 desktop:py-24">

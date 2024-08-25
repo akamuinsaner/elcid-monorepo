@@ -1,6 +1,6 @@
-import { IProduct } from '@elcid-monorepo/types';
+import { TECommerce } from '@elcid-monorepo/types';
 
-const ProductCard = ({ product }: { product: IProduct }) => {
+const ProductCard = ({ product }: { product: TECommerce.IProduct }) => {
   return (
     <li key={product.id}>
       <button
