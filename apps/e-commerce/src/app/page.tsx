@@ -9,6 +9,7 @@ export default function Index() {
   return (
     <>
       <ECommerce.HeroSection />
+      <ECommerce.ProductGridSection />
     </>
   );
 }

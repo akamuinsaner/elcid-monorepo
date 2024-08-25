@@ -5,5 +5,33 @@
   "projectType": "application",
   "tags": [],
   "// targets": "to see all targets run: nx show project e-commerce --web",
-  "targets": {}
+  "targets": {
+    "dev": {
+      "options": {
+        "assets": [
+          {
+            "input": "packages/images/src/lib/e-commerce/",
+            "glob": "**.*",
+            "output": "./"
+          },
+          {
+            "input": "packages/images/src/lib/e-commerce/mock",
+            "glob": "**.*",
+            "output": "./mock"
+          }
+        ]
+      }
+    },
+    "build": {
+      "options": {
+        "assets": [
+          {
+            "input": "packages/images/src/lib/e-commerce/",
+            "glob": "**.*",
+            "output": "./"
+          }
+        ]
+      }
+    }
+  }
 }
