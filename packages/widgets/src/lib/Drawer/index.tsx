@@ -7,49 +7,59 @@ import { styles } from './styles';
 import useWrapper from './useWrapper';
 
 const Drawer = forwardRef<HTMLDivElement, TDrawer>(
-  (
-    { maskClassName, maskStyle, open, onClose, className, children, ...props },
-    ref
-  ) => {
-    const [classes, setClasses] = useState<string>(styles.base);
+    (
+        {
+            maskClassName,
+            maskStyle,
+            open,
+            onClose,
+            className,
+            children,
+            ...props
+        },
+        ref,
+    ) => {
+        const [classes, setClasses] = useState<string>(
+            twMerge(styles.base, className),
+        );
 
-    const close = useCallback(() => {
-      setClasses(styles.base);
-    }, []);
+        const close = useCallback(() => {
+            setClasses(twMerge(styles.base, className));
+        }, []);
 
-    const { wrapper, setWrapper } = useWrapper({
-      wrapperId: 'drawer-id',
-      open,
-      close,
-    });
+        const { wrapper, setWrapper } = useWrapper({
+            wrapperId: 'drawer-id',
+            open,
+            close,
+        });
 
-    const maskClasses = twMerge(styles.mask.base, maskClassName);
+        const maskClasses = twMerge(styles.mask.base, maskClassName);
 
-    const onTransitionEnd = () => {
-      if (!open) setWrapper(null);
-    };
+        const onTransitionEnd = () => {
+            if (!open) setWrapper(null);
+        };
 
-    useEffect(() => {
-      if (wrapper) setClasses(twMerge(classes, styles.active));
-    }, [wrapper]);
+        useEffect(() => {
+            if (wrapper) setClasses(twMerge(classes, styles.active));
+        }, [wrapper]);
 
-    if (!wrapper) return null;
+        if (!wrapper) return null;
 
-    return createPortal(
-      <div className={maskClasses} style={maskStyle} onClick={onClose}>
-        <div
-          ref={ref}
-          className={classes}
-          onTransitionEnd={onTransitionEnd}
-          onClick={(e) => e.stopPropagation()}
-          {...props}
-        >
-          {children}
-        </div>
-      </div>,
-      wrapper
-    );
-  }
+        return createPortal(
+            <div className={maskClasses} style={maskStyle} onClick={onClose}>
+                <div
+                    ref={ref}
+                    className={classes}
+                    onTransitionEnd={onTransitionEnd}
+                    onClick={e => e.stopPropagation()}
+                    {...props}
+                >
+                    {children}
+                </div>
+            </div>,
+            wrapper,
+        );
+    },
 );
 
 export default memo(Drawer);
