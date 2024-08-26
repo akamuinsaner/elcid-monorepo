@@ -12,6 +12,7 @@ export default function Index() {
             <ECommerce.ProductGridSection />
             <ECommerce.CollectionSection />
             <ECommerce.FeatureSection />
+            <ECommerce.SubscribeSection />
             <ECommerce.FooterSection />
         </>
     );
