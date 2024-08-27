@@ -12,4 +12,16 @@ import Checkbox from './Checkbox';
 
 import Form from './Form';
 
-export { Button, IconButton, Link, NavBar, Drawer, Input, Checkbox, Form };
+import Rating from './Rating';
+
+export {
+    Button,
+    IconButton,
+    Link,
+    NavBar,
+    Drawer,
+    Input,
+    Checkbox,
+    Form,
+    Rating,
+};
