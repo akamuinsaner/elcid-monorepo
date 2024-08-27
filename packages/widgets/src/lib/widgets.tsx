@@ -8,4 +8,6 @@ import NavBar from './NavBar';
 
 import Drawer from './Drawer';
 
-export { Button, IconButton, Link, NavBar, Drawer, Input };
+import Checkbox from './Checkbox';
+
+export { Button, IconButton, Link, NavBar, Drawer, Input, Checkbox };
