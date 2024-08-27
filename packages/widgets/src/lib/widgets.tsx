@@ -10,4 +10,6 @@ import Drawer from './Drawer';
 
 import Checkbox from './Checkbox';
 
-export { Button, IconButton, Link, NavBar, Drawer, Input, Checkbox };
+import Form from './Form';
+
+export { Button, IconButton, Link, NavBar, Drawer, Input, Checkbox, Form };
