@@ -12,9 +12,15 @@ import Checkbox from './Checkbox';
 
 import Form from './Form';
 
+import FormItem from './Form/FormItem';
+
 import Rating from './Rating';
 
 import Dropdown from './Dropdown';
+
+import Menu from './Menu';
+
+import MenuItem from './Menu/item';
 
 export {
     Button,
@@ -25,6 +31,9 @@ export {
     Input,
     Checkbox,
     Form,
+    FormItem,
     Rating,
     Dropdown,
+    Menu,
+    MenuItem,
 };
