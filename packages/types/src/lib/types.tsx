@@ -1,3 +1,3 @@
-import { TECommerce } from './e-xommerce';
+import { TECommerce } from './ecommerce';
 
 export { TECommerce };

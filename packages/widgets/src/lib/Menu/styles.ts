@@ -6,7 +6,7 @@ export const styles = {
         base: 'flex items.center p-2 gap-2 text-primary font-medium text-sm hover:bg-tertiary focus:rounded focus:ring-1 focus:ring-brand-subtle cursor-pointer',
         selected: 'bg-neutral-subtle rounded',
         icon: 'w-5 h-5',
-        tailIcon: 'hidden',
+        tailIcon: 'hidden ml-auto',
         disabled: 'text-disabled select-none pointer-events-none',
     },
 };

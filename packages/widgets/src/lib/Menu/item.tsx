@@ -31,13 +31,15 @@ const MenuItem = forwardRef<HTMLLIElement, NTAMenuItem>(
                 ref={ref}
                 tabIndex={0}
                 className={classes}
+                aria-selected={selected}
+                aria-disabled={props.disabled}
             >
                 {styledIcon}
                 {children}
                 <RiCheckboxCircleFill
                     className={twMerge(
                         styles.item.icon,
-                        'hidden',
+                        styles.item.tailIcon,
                         classNames({
                             block: selected,
                         }),
