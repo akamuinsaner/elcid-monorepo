@@ -1,0 +1,27 @@
+{
+    "name": "ec-server",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "apps/ec-server/src",
+    "projectType": "application",
+    "tags": [],
+    "targets": {
+        "serve": {
+            "executor": "@nx/js:node",
+            "defaultConfiguration": "development",
+            "dependsOn": ["build"],
+            "options": {
+                "port": 8888,
+                "buildTarget": "ec-server:build",
+                "runBuildTargetDependencies": false
+            },
+            "configurations": {
+                "development": {
+                    "buildTarget": "ec-server:build:development"
+                },
+                "production": {
+                    "buildTarget": "ec-server:build:production"
+                }
+            }
+        }
+    }
+}

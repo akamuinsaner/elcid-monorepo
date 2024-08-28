@@ -53,7 +53,8 @@
                 "apps/mock-e2e/**/*",
                 "apps/mock-e2e/**/*",
                 "apps/mock-e2e/**/*",
-                "apps/server-e2e/**/*"
+                "apps/server-e2e/**/*",
+                "apps/ec-server-e2e/**/*"
             ]
         },
         {
