@@ -157,6 +157,7 @@ const FormItem: FormItemComponent<FormItemProps> = ({
 
     const preChildren = cloneElement(subComponent, {
         ...props,
+        ...subComponent.props,
     });
 
     return (

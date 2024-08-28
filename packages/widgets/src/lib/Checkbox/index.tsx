@@ -69,13 +69,13 @@ const Checkbox = forwardRef<HTMLInputElement, NTACheckbox>(
                     <RiSubtractLine className={indeterminateClasses} />
                 </span>
                 <input
+                    {...props}
                     className={inputClasses}
                     type='checkbox'
                     checked={isChecked}
                     onChange={setChecked}
                     onFocus={() => setFocusing(true)}
                     onBlur={() => setFocusing(false)}
-                    {...props}
                 />
             </span>
         );

@@ -1,6 +1,7 @@
 export const styles = {
     wrapper: {
         base: 'inline-flex gap-1 cursor-pointer focus:ring-2 focus:ring-brand-solid/[.12] rounded-sm',
+        readOnly: 'select-none pointer-events-none',
     },
     iconWrapper: {
         base: 'flex items-center w-5 h-5 relative',

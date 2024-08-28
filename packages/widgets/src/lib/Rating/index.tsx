@@ -19,11 +19,17 @@ const Rating: FC<NTARating> = ({
     value,
     onChange,
     defaultValue,
+    ...props
 }) => {
     const [hovering, setHovering] = useState<boolean>(false);
     const [score, setScore] = useState<number>(0);
     const [tempScore, setTempScore] = useState<number>(0);
-    const wrapperClass = twMerge(styles.wrapper.base, classNames({}));
+    const wrapperClass = twMerge(
+        styles.wrapper.base,
+        classNames({
+            [styles.wrapper.readOnly]: props.readOnly,
+        }),
+    );
 
     const finalScore = useMemo(() => {
         if (hovering) return tempScore;
@@ -78,6 +84,7 @@ const Rating: FC<NTARating> = ({
 
     return (
         <span
+            {...props}
             tabIndex={0}
             className={wrapperClass}
             onMouseEnter={() => setHovering(true)}
@@ -85,7 +92,7 @@ const Rating: FC<NTARating> = ({
         >
             {new Array(5).fill(0).map((_, index) => {
                 return (
-                    <span className={styles.iconWrapper.base}>
+                    <span className={styles.iconWrapper.base} key={index}>
                         <span
                             className={styles.iconWrapper.left}
                             onMouseEnter={onHovering(index + 1, index + 0.5)}

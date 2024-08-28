@@ -14,6 +14,8 @@ import Form from './Form';
 
 import Rating from './Rating';
 
+import Dropdown from './Dropdown';
+
 export {
     Button,
     IconButton,
@@ -24,4 +26,5 @@ export {
     Checkbox,
     Form,
     Rating,
+    Dropdown,
 };
