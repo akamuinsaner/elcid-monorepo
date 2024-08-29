@@ -27,6 +27,8 @@ import Badge from './Badge';
 import Tabs from './Tabs';
 import Tab from './Tabs/Tab';
 
+import Stepper from './Stepper';
+
 export {
     Button,
     IconButton,
@@ -44,4 +46,5 @@ export {
     Badge,
     Tabs,
     Tab,
+    Stepper,
 };
