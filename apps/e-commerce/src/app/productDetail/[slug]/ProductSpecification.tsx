@@ -37,10 +37,17 @@ const ProductSpecification = ({
                 aria-label='specification'
                 className='mb-8'
                 onChange={updateActiveSpe}
+                name='specification'
             >
                 {SPELIST.map((spe, index) => {
                     return (
-                        <Tab key={index} aria-label={spe} aria-controls={spe}>
+                        <Tab
+                            name={spe}
+                            role='tab'
+                            key={index}
+                            aria-label={spe}
+                            aria-controls={spe}
+                        >
                             {spe}
                         </Tab>
                     );

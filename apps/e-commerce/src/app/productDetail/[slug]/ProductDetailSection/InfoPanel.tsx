@@ -62,6 +62,8 @@ const InfoPanel = ({ product }: { product: ECommerce.Product.IProduct }) => {
                         hidden={product.price === product.origin}
                         variant='warning'
                         className='mb-3'
+                        name='discount'
+                        aria-label='discount'
                     >
                         {Math.round(
                             (product.origin - product.price) / product.origin,
@@ -89,15 +91,15 @@ const InfoPanel = ({ product }: { product: ECommerce.Product.IProduct }) => {
                     {product.description}
                 </p>
                 <div>
-                    <h6 className='text-tertiary text-sm mb-4'>
+                    <h3 role='heading' className='text-tertiary text-sm mb-4'>
                         Available Colors
-                    </h6>
+                    </h3>
                     <div className='flex flex-wrap gap-4'></div>
                 </div>
                 <div>
-                    <h6 className='text-tertiary text-sm mb-4'>
+                    <h3 role='heading' className='text-tertiary text-sm mb-4'>
                         Available Sizes
-                    </h6>
+                    </h3>
                     <div className='flex flex-wrap gap-4'>
                         {product.sizes.map(size => {
                             return (
@@ -106,6 +108,7 @@ const InfoPanel = ({ product }: { product: ECommerce.Product.IProduct }) => {
                                     key={size.sizeId}
                                     variant='secondary'
                                     name={size.size}
+                                    aria-label={size.size}
                                 >
                                     {size.size}
                                 </Button>
@@ -114,10 +117,25 @@ const InfoPanel = ({ product }: { product: ECommerce.Product.IProduct }) => {
                     </div>
                 </div>
                 <div>
-                    <h6 className='text-tertiary text-sm mb-4'>Quantity</h6>
-                    <Stepper className='w-[125px]' />
+                    <label
+                        className='block text-tertiary text-sm mb-4'
+                        aria-label='quantity'
+                        htmlFor='quantity'
+                    >
+                        Quantity
+                    </label>
+                    <Stepper
+                        className='w-[125px]'
+                        name='quantity'
+                        aria-labelledby='quantity'
+                        id='quantity'
+                    />
                 </div>
-                <Button className='w-full' name='add to card'>
+                <Button
+                    className='w-full'
+                    name='add to card'
+                    aria-label='add to card'
+                >
                     Add to Card
                 </Button>
             </div>
@@ -140,11 +158,7 @@ const InfoPanel = ({ product }: { product: ECommerce.Product.IProduct }) => {
                                 <h3 className='text-primary text-lg font-medium'>
                                     {feature.title}
                                 </h3>
-                                <ul
-                                    className={classes}
-                                    id={feature.title}
-                                    role='region'
-                                >
+                                <ul className={classes} id={feature.title}>
                                     {feature.content.map((item, index) => {
                                         return (
                                             <li
@@ -160,6 +174,7 @@ const InfoPanel = ({ product }: { product: ECommerce.Product.IProduct }) => {
                             <Link
                                 className='text-disabled'
                                 name={feature.title}
+                                aria-label={feature.title}
                                 aria-expanded={isExpanding}
                                 aria-controls={feature.title}
                                 onClick={() => {
