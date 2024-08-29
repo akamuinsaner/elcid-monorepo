@@ -22,6 +22,8 @@ import Menu from './Menu';
 
 import MenuItem from './Menu/item';
 
+import Badge from './Badge';
+
 export {
     Button,
     IconButton,
@@ -36,4 +38,5 @@ export {
     Dropdown,
     Menu,
     MenuItem,
+    Badge,
 };
