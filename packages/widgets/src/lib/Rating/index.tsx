@@ -76,12 +76,11 @@ const Rating: FC<NTARating> = ({
 
     useEffect(() => {
         if (value !== undefined) {
-            setScore(value);
+            setScore(Math.ceil(value));
             return;
         }
-        if (defaultValue !== undefined) setScore(defaultValue);
+        if (defaultValue !== undefined) setScore(Math.ceil(defaultValue));
     }, [value, defaultValue]);
-
     return (
         <span
             {...props}

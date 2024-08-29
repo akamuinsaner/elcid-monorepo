@@ -24,6 +24,9 @@ import MenuItem from './Menu/item';
 
 import Badge from './Badge';
 
+import Tabs from './Tabs';
+import Tab from './Tabs/Tab';
+
 export {
     Button,
     IconButton,
@@ -39,4 +42,6 @@ export {
     Menu,
     MenuItem,
     Badge,
+    Tabs,
+    Tab,
 };
