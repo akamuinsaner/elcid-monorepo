@@ -1,8 +1,8 @@
-import { TECommerce } from '@elcid-monorepo/types';
+import { ECommerce } from '@elcid-monorepo/types';
 
 export interface State {
-    productList: TECommerce.IProduct[];
-    sortBy: TECommerce.ESortBy;
+    productList: ECommerce.Product.IProduct[];
+    sortBy: ECommerce.Product.ESortBy;
     filterDrawerOpen: boolean;
     filterParams: {
         collections: number[];
@@ -18,7 +18,7 @@ export interface State {
     };
 }
 
-export const initialFilterParams = {
+export const initialFilterParams: State['filterParams'] = {
     collections: [],
     categories: [],
     colors: [],
@@ -27,7 +27,7 @@ export const initialFilterParams = {
 
 export const initialState: State = {
     productList: [],
-    sortBy: TECommerce.ESortBy['Newest'],
+    sortBy: ECommerce.Product.ESortBy['Newest'],
     filterDrawerOpen: false,
     filterParams: initialFilterParams,
     filterExpands: {

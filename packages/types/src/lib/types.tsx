@@ -1,1 +1,1 @@
-export { TECommerce } from './ecommerce';
+export * as ECommerce from './ecommerce';

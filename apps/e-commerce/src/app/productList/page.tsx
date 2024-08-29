@@ -3,7 +3,7 @@ import { Drawer } from '@elcid-monorepo/widgets';
 import Empty from './Empty';
 import FilterSection from './FilterSection';
 import { useReducer } from 'react';
-import { TECommerce } from '@elcid-monorepo/types';
+import { ECommerce } from '@elcid-monorepo/types';
 import {
     initialState,
     reducer,
@@ -26,7 +26,7 @@ const ProductListPage = () => {
         dispatch(updateFilterExpandsAction(value));
     const updateFilterDrawerOpen = (value: boolean) =>
         dispatch(updateFilterDrawerOpenAction(value));
-    const updateSortBy = (sortBy: TECommerce.ESortBy) =>
+    const updateSortBy = (sortBy: ECommerce.Product.ESortBy) =>
         dispatch(updateSortByAction(sortBy));
     return (
         <div className='px-3 py-12 tablet:px-4 tablet:py-16 desktop:px-24 desktop:py-24 desktop:gap-16 flex flex-row flex-1'>

@@ -1,7 +1,7 @@
 import { Button, Dropdown, Menu, MenuItem } from '@elcid-monorepo/widgets';
 import { State } from './store';
 import { RiArrowDownSLine, RiFilterLine } from '@remixicon/react';
-import { TECommerce } from '@elcid-monorepo/types';
+import { ECommerce } from '@elcid-monorepo/types';
 
 const Header = ({
     sortBy,
@@ -11,7 +11,7 @@ const Header = ({
 }: {
     sortBy: State['sortBy'];
     filterDrawerOpen: State['filterDrawerOpen'];
-    updateSortBy: (sortBy: TECommerce.ESortBy) => void;
+    updateSortBy: (sortBy: ECommerce.Product.ESortBy) => void;
     updateFilterDrawerOpen: (open: boolean) => void;
 }) => {
     return (
@@ -33,20 +33,22 @@ const Header = ({
                 menu={
                     <Menu>
                         {[
-                            TECommerce.ESortBy['Newest'],
-                            TECommerce.ESortBy['Best rating'],
-                            TECommerce.ESortBy['Most popular'],
-                            TECommerce.ESortBy['Price: Low to high'],
-                            TECommerce.ESortBy['Price: High to low'],
+                            ECommerce.Product.ESortBy['Newest'],
+                            ECommerce.Product.ESortBy['Best rating'],
+                            ECommerce.Product.ESortBy['Most popular'],
+                            ECommerce.Product.ESortBy['Price: Low to high'],
+                            ECommerce.Product.ESortBy['Price: High to low'],
                         ].map(value => {
                             return (
                                 <MenuItem
                                     key={value}
-                                    aria-label={TECommerce.ESortBy[value]}
+                                    aria-label={
+                                        ECommerce.Product.ESortBy[value]
+                                    }
                                     selected={sortBy === value}
                                     onClick={() => updateSortBy(value)}
                                 >
-                                    {TECommerce.ESortBy[value]}
+                                    {ECommerce.Product.ESortBy[value]}
                                 </MenuItem>
                             );
                         })}

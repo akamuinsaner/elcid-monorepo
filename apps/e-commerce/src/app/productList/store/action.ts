@@ -1,5 +1,4 @@
 import { State } from './state';
-import { TECommerce } from '@elcid-monorepo/types';
 
 export enum EActions {
     'updateFilterParams',
@@ -49,8 +48,8 @@ export const updateFilterDrawerOpenAction = (
 };
 
 export const updateSortByAction = (
-    sortBy: TECommerce.ESortBy,
-): Action<TECommerce.ESortBy> => {
+    sortBy: State['sortBy'],
+): Action<State['sortBy']> => {
     return {
         type: EActions['updateSortBy'],
         value: sortBy,
@@ -58,8 +57,8 @@ export const updateSortByAction = (
 };
 
 export const updateProductListAction = (
-    list: TECommerce.IProduct[],
-): Action<TECommerce.IProduct[]> => {
+    list: State['productList'],
+): Action<State['productList']> => {
     return {
         type: EActions['updateProductList'],
         value: list,
