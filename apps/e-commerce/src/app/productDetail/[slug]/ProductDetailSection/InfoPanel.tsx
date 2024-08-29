@@ -1,6 +1,6 @@
 'use client';
 import { ECommerce } from '@elcid-monorepo/types';
-import { Badge, Button, Link, Rating } from '@elcid-monorepo/widgets';
+import { Badge, Button, Link, Rating, Stepper } from '@elcid-monorepo/widgets';
 import { RiAddCircleLine, RiIndeterminateCircleLine } from '@remixicon/react';
 import classNames from 'classnames';
 import { useState } from 'react';
@@ -115,6 +115,7 @@ const InfoPanel = ({ product }: { product: ECommerce.Product.IProduct }) => {
                 </div>
                 <div>
                     <h6 className='text-tertiary text-sm mb-4'>Quantity</h6>
+                    <Stepper className='w-[125px]' />
                 </div>
                 <Button className='w-full' name='add to card'>
                     Add to Card
