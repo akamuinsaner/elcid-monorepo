@@ -9,7 +9,7 @@ const PRODUCT_LIST: ECommerce.Product.IProduct[] = [
             id: 1,
             width: 100,
             height: 100,
-            url: '/mock/1.jpg',
+            url: '/product.webp',
         },
         description: '',
         name: 'Urban Drift Bucket Hat',
@@ -33,7 +33,7 @@ const PRODUCT_LIST: ECommerce.Product.IProduct[] = [
             id: 1,
             width: 100,
             height: 100,
-            url: '/mock/1.jpg',
+            url: '/product.webp',
         },
         description: '',
         name: 'Urban Drift Bucket Hat',
@@ -57,7 +57,7 @@ const PRODUCT_LIST: ECommerce.Product.IProduct[] = [
             id: 1,
             width: 100,
             height: 100,
-            url: '/mock/1.jpg',
+            url: '/product.webp',
         },
         description: '',
         name: 'Urban Drift Bucket Hat',
@@ -81,7 +81,7 @@ const PRODUCT_LIST: ECommerce.Product.IProduct[] = [
             id: 1,
             width: 100,
             height: 100,
-            url: '/mock/1.jpg',
+            url: '/product.webp',
         },
         description: '',
         name: 'Urban Drift Bucket Hat',
@@ -105,7 +105,7 @@ const PRODUCT_LIST: ECommerce.Product.IProduct[] = [
             id: 1,
             width: 100,
             height: 100,
-            url: '/mock/1.jpg',
+            url: '/product.webp',
         },
         description: '',
         name: 'Urban Drift Bucket Hat',
@@ -129,7 +129,7 @@ const PRODUCT_LIST: ECommerce.Product.IProduct[] = [
             id: 1,
             width: 100,
             height: 100,
-            url: '/mock/1.jpg',
+            url: '/product.webp',
         },
         description: '',
         name: 'Urban Drift Bucket Hat',
@@ -153,7 +153,7 @@ const PRODUCT_LIST: ECommerce.Product.IProduct[] = [
             id: 1,
             width: 100,
             height: 100,
-            url: '/mock/1.jpg',
+            url: '/product.webp',
         },
         description: '',
         name: 'Urban Drift Bucket Hat',
@@ -177,7 +177,7 @@ const PRODUCT_LIST: ECommerce.Product.IProduct[] = [
             id: 1,
             width: 100,
             height: 100,
-            url: '/mock/1.jpg',
+            url: '/product.webp',
         },
         description: '',
         name: 'Urban Drift Bucket Hat',
@@ -208,7 +208,12 @@ const ProductGridSection = ({
                 <h2 className='text-primary font-semibold text-2xl tablet:text-3xl'>
                     Latest Arrivals
                 </h2>
-                <Button size='md' variant='secondary'>
+                <Button
+                    name='view all'
+                    aria-label='view all'
+                    size='md'
+                    variant='secondary'
+                >
                     View all
                 </Button>
             </div>

@@ -1,8 +1,8 @@
-import { TECommerce } from '@elcid-monorepo/types';
+import { ECommerce } from '@elcid-monorepo/types';
 import classNames from 'classnames';
 import { twMerge } from 'tailwind-merge';
 
-const COLLECTIONS: TECommerce.ICollection[] = [
+const COLLECTIONS: ECommerce.Product.ICollection[] = [
     {
         id: 1,
         image: '/hero.webp',
@@ -26,7 +26,7 @@ const COLLECTIONS: TECommerce.ICollection[] = [
 const CollectionSection = ({
     collection = COLLECTIONS,
 }: {
-    collection?: TECommerce.ICollection[];
+    collection?: ECommerce.Product.ICollection[];
 }) => {
     return (
         <section className='px-3 py-12 tablet:px-4 tablet:py-16 desktop:px-24 desktop:py-24'>

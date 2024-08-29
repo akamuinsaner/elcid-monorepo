@@ -7,6 +7,8 @@ const ProductCard = ({ product }: { product: ECommerce.Product.IProduct }) => {
     return (
         <li key={product.productId}>
             <Link
+                name={product.name}
+                aria-label={product.name}
                 type='button'
                 className='p-0 bg-inherit border-none outline-none text-left block w-full group rounded-lg'
             >

@@ -14,11 +14,6 @@
                         "input": "packages/images/src/lib/e-commerce/",
                         "glob": "**.*",
                         "output": "./"
-                    },
-                    {
-                        "input": "packages/images/src/lib/e-commerce/mock",
-                        "glob": "**.*",
-                        "output": "./mock"
                     }
                 ]
             }

@@ -41,13 +41,13 @@ const Input = forwardRef<HTMLSpanElement, NTAInput>(
         return (
             <span
                 ref={ref}
-                role='textbox'
                 tabIndex={disabled ? -1 : 0}
                 className={wrapperClasses}
                 onFocus={() => !disabled && setFocusing(true)}
                 onBlur={() => !disabled && setFocusing(false)}
             >
                 <input
+                    role='textbox'
                     className={inputClasses}
                     ref={inputRef}
                     disabled={disabled}

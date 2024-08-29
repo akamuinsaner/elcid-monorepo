@@ -13,6 +13,8 @@ const FooterSection = () => {
             <div className='flex flex-col gap-8 tablet:gap-12 desktop:flex-row desktop:gap-16'>
                 <div className='w-full desktop:w-[352px]'>
                     <Link
+                        name='footer logo'
+                        aria-label='footer-logo'
                         className='flex h-8 mb-6 tablet:mb-8 justify-start items-center'
                         href='/'
                     >
@@ -28,37 +30,69 @@ const FooterSection = () => {
                 </div>
                 <div className='flex flex-col gap-8 tablet:flex-row desktop:justify-end flex-1'>
                     <div className='flex flex-col flex-1 desktop:flex-none desktop:w-[280px]'>
-                        <h6 className='text-sm text-tertiary mb-4'>
+                        <h3
+                            role='heading'
+                            className='text-sm text-tertiary mb-4'
+                        >
                             SHOP CATEGORIES
-                        </h6>
+                        </h3>
                         <ul className='flex flex-col gap-3'>
                             <li>
-                                <Link>Unisex</Link>
+                                <Link name='Unisex' aria-label='Unisex'>
+                                    Unisex
+                                </Link>
                             </li>
                             <li>
-                                <Link>Women</Link>
+                                <Link name='Women' aria-label='Women'>
+                                    Women
+                                </Link>
                             </li>
                             <li>
-                                <Link>Men</Link>
+                                <Link name='Men' aria-label='Men'>
+                                    Men
+                                </Link>
                             </li>
                         </ul>
                     </div>
                     <div className='flex flex-col flex-1 desktop:flex-none desktop:w-[280px]'>
-                        <h6 className='text-sm text-tertiary mb-4'>
+                        <h3
+                            role='heading'
+                            className='text-sm text-tertiary mb-4'
+                        >
                             SHOP COLLECTIONS
-                        </h6>
+                        </h3>
                         <ul className='flex flex-col gap-3'>
                             <li>
-                                <Link>Latest arrivals</Link>
+                                <Link
+                                    name='Latest arrivals'
+                                    aria-label='Latest arrivals'
+                                >
+                                    Latest arrivals
+                                </Link>
                             </li>
                             <li>
-                                <Link>Urban Oasis</Link>
+                                <Link
+                                    name='Urban Oasis'
+                                    aria-label='Urban Oasis'
+                                >
+                                    Urban Oasis
+                                </Link>
                             </li>
                             <li>
-                                <Link>Cozy Comfort</Link>
+                                <Link
+                                    name='Cozy Comfort'
+                                    aria-label='Cozy Comfort'
+                                >
+                                    Cozy Comfort
+                                </Link>
                             </li>
                             <li>
-                                <Link>Fresh Fusion</Link>
+                                <Link
+                                    name='Fresh Fusion'
+                                    aria-label='Fresh Fusion'
+                                >
+                                    Fresh Fusion
+                                </Link>
                             </li>
                         </ul>
                     </div>
@@ -70,19 +104,19 @@ const FooterSection = () => {
                     © 2024 StyleNest, Inc. All rights reserved.
                 </span>
                 <div className='flex gap-6 desktop:ml-auto'>
-                    <Link>
+                    <Link name='youtube' aria-label='youtube'>
                         <RiYoutubeLine />
                     </Link>
-                    <Link>
+                    <Link name='instagram' aria-label='instagram'>
                         <RiInstagramLine />
                     </Link>
-                    <Link>
+                    <Link name='facebook' aria-label='facebook'>
                         <RiFacebookBoxLine />
                     </Link>
-                    <Link>
+                    <Link name='github' aria-label='github'>
                         <RiGithubLine />
                     </Link>
-                    <Link>
+                    <Link name='twitter' aria-label='twitter'>
                         <RiTwitterXLine />
                     </Link>
                 </div>

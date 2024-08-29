@@ -39,4 +39,11 @@ export namespace Product {
         'Price: Low to high',
         'Price: High to low',
     }
+
+    export interface ICollection {
+        id: number;
+        image: string;
+        category: string;
+        desc: string;
+    }
 }
