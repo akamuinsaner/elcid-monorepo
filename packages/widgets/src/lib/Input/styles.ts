@@ -5,9 +5,12 @@ export const styles = {
         error: 'border-error hover:border-error',
         'error&focus': 'border-error ring-4 ring-error/[.12]',
         disabled:
-            'border-disabled text-disabled select-none pointer-event-none cursor-auto hover:border-disabled',
+            'border-disabled text-disabled select-none pointer-events-none cursor-auto hover:border-disabled',
     },
     input: {
-        base: 'outline-none border-none p-0 text-inherit placeholder:text-tertiary bg-inherit text-sm w-full h-full ',
+        base: 'outline-none border-none p-0 text-inherit placeholder:text-tertiary bg-inherit text-sm w-0 h-full flex-1',
+    },
+    icon: {
+        base: 'w-4 h-4 text-disabled',
     },
 };

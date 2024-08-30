@@ -1,5 +1,13 @@
 'use client';
-import { forwardRef, useEffect, useRef, useState } from 'react';
+import {
+    ChangeEventHandler,
+    cloneElement,
+    forwardRef,
+    useEffect,
+    useMemo,
+    useRef,
+    useState,
+} from 'react';
 import { NTAInput } from './types';
 import { styles } from './styles';
 import { twMerge } from 'tailwind-merge';
@@ -14,11 +22,14 @@ const Input = forwardRef<HTMLSpanElement, NTAInput>(
             disabled,
             value = '',
             onChange = () => {},
+            inputRef,
+            suffix,
             ...props
         },
         ref,
     ) => {
-        const inputRef = useRef<HTMLInputElement>(null);
+        const [val, setVal] = useState<string | number | readonly string[]>('');
+        const ir = useRef<HTMLInputElement>(null);
         const [focusing, setFocusing] = useState<boolean>(false);
         const wrapperClasses = twMerge(
             styles.wrapper.base,
@@ -31,30 +42,60 @@ const Input = forwardRef<HTMLSpanElement, NTAInput>(
             className,
         );
 
+        const finalRef = useMemo(() => {
+            return inputRef || ir;
+        }, []);
+
         const inputClasses = twMerge(styles.input.base);
 
         useEffect(() => {
-            if (focusing && !!inputRef.current) inputRef.current.focus();
-            if (!focusing && !!inputRef.current) inputRef.current.blur();
+            if (!!finalRef.current) {
+                if (focusing) finalRef.current.focus();
+                if (!focusing) finalRef.current.blur();
+            }
         }, [focusing, disabled]);
+
+        const onInputChange: ChangeEventHandler<HTMLInputElement> = e => {
+            if (onChange) onChange(e);
+            if (value !== undefined) return;
+            setVal(e.target.value);
+        };
+
+        useEffect(() => {
+            if (value !== undefined) {
+                setVal(value);
+                return;
+            }
+            if (props.defaultValue !== undefined) {
+                setVal(props.defaultValue);
+            }
+        }, [value, props.defaultValue]);
+
+        const addOnAfter = useMemo(() => {
+            if (!suffix) return null;
+            return cloneElement(suffix, {
+                className: twMerge(styles.icon.base, suffix.props?.className),
+            });
+        }, [suffix]);
 
         return (
             <span
                 ref={ref}
                 tabIndex={disabled ? -1 : 0}
                 className={wrapperClasses}
-                onFocus={() => !disabled && setFocusing(true)}
-                onBlur={() => !disabled && setFocusing(false)}
+                onFocus={() => setFocusing(true)}
+                onBlur={() => setFocusing(false)}
             >
                 <input
+                    {...props}
+                    value={val}
+                    onChange={onInputChange}
                     role='textbox'
                     className={inputClasses}
-                    ref={inputRef}
+                    ref={finalRef}
                     disabled={disabled}
-                    {...props}
-                    value={value}
-                    onChange={onChange}
                 />
+                {addOnAfter}
             </span>
         );
     },
