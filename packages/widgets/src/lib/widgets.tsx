@@ -29,6 +29,8 @@ import Tab from './Tabs/Tab';
 
 import Stepper from './Stepper';
 
+import { message, MessageProvider } from './Message';
+
 export {
     Button,
     IconButton,
@@ -47,4 +49,6 @@ export {
     Tabs,
     Tab,
     Stepper,
+    message,
+    MessageProvider,
 };

@@ -17,3 +17,5 @@ export const PASSWORD_MAX_LENGTH = `password no longer than 64 charaters`;
 export const EMAIL_REQUIRED = `email should not be blank`;
 
 export const PASSWORD_REQUIRED = `password should not be blank`;
+
+export const AGREE_WITH_PROTOCAL = `please agree with the protocal`;
