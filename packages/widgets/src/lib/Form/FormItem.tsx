@@ -41,6 +41,7 @@ export type FormItemProps = {
     label?: string;
     disabled?: boolean;
     labelPosition?: 'top' | 'right' | 'bottom' | 'left';
+    labelClassName?: string;
 };
 
 export type FormItemComponent<T> = React.FunctionComponent<T>;
@@ -54,6 +55,7 @@ const FormItem: FormItemComponent<FormItemProps> = ({
     label,
     disabled,
     labelPosition = 'top',
+    labelClassName,
 }) => {
     const context = useContext<RTFormContext>(FormContext);
 
@@ -134,13 +136,15 @@ const FormItem: FormItemComponent<FormItemProps> = ({
         checked: value,
         onChange: valueOnChange,
         disabled: finalDisabled,
+        error: !!error,
     };
 
     const labelClasses = twMerge(
-        'font-base text-secondary shrink-0 cursor-pointer',
+        'text-sm font-medium text-secondary shrink-0 cursor-pointer',
         classNames({
             'text-disabled select-none pointer-event-none': disabled,
         }),
+        labelClassName,
     );
 
     const wrapperClasses = twMerge(
@@ -153,6 +157,8 @@ const FormItem: FormItemComponent<FormItemProps> = ({
         }),
     );
 
+    const errorClasses = twMerge('text-sm text-error');
+
     let subComponent: JSX.Element = children;
 
     const preChildren = cloneElement(subComponent, {
@@ -162,10 +168,11 @@ const FormItem: FormItemComponent<FormItemProps> = ({
 
     return (
         <div className={wrapperClasses}>
-            <label className={labelClasses} htmlFor={name}>
+            <label className={labelClasses} htmlFor={name} aria-label={name}>
                 {label}
             </label>
             {preChildren}
+            {error ? <span className={errorClasses}>{error}</span> : null}
         </div>
     );
 };

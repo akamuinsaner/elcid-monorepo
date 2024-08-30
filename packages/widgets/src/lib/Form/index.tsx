@@ -1,5 +1,11 @@
 'use client';
-import { CSSProperties, FunctionComponent, useEffect } from 'react';
+import {
+    CSSProperties,
+    FunctionComponent,
+    memo,
+    useEffect,
+    useRef,
+} from 'react';
 import { FormContext, RTFormContext } from './context';
 import { FormInstanceType, useForm } from './useForm';
 import FormItem, { FormItemProps } from './FormItem';
@@ -32,23 +38,23 @@ const Form: FormComponent<FormProps> = ({
     onSubmit,
     onSubmitFail,
 }) => {
-    const instance = useForm(form);
+    const instance = useRef<FormInstanceType>(useForm(form));
 
     useEffect(() => {
-        instance.setFieldsValue(initialValues || {});
-        instance.onValuesChange = onValuesChange;
+        instance.current.setFieldsValue(initialValues || {});
+        instance.current.onValuesChange = onValuesChange;
     }, []);
 
     const submitForm = (e: any) => {
         e.preventDefault();
-        instance.validates((errors, values) => {
+        instance.current.validates((errors, values) => {
             if (errors && onSubmitFail) onSubmitFail(errors);
             if (!errors && onSubmit) onSubmit(values);
         });
     };
 
     const contextValue: RTFormContext = {
-        instance,
+        instance: instance.current,
         disabled,
     };
 
@@ -69,4 +75,4 @@ const Form: FormComponent<FormProps> = ({
 Form.Item = FormItem;
 Form.useForm = useForm;
 
-export default Form;
+export default memo(Form);
