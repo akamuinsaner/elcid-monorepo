@@ -1,12 +1,21 @@
-export default () => ({
-    port: parseInt(process.env.PORT, 10) || 3000,
+import { SequelizeModuleOptions } from '@nestjs/sequelize';
+import { User } from '../user/entities/user.entity';
+
+const configuration: {
+    port: number;
+    database: SequelizeModuleOptions;
+} = {
+    port: parseInt(process.env.PORT as string, 10) || 3000,
     database: {
-        type: 'postgres',
+        dialect: 'postgres' as const,
         host: process.env.DATABASE_HOST,
         port: parseInt(process.env.DATABASE_PORT, 10) || 5432,
         username: process.env.DATABASE_USER,
         password: process.env.DATABASE_PASSWORD,
         database: process.env.DATABASE_NAME,
-        entities: ['src/**/*.entity{.ts,.js}'],
+        autoLoadModels: true,
+        models: [User],
     },
-});
+};
+
+export default configuration;
