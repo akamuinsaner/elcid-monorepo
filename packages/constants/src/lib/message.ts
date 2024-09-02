@@ -19,3 +19,7 @@ export const EMAIL_REQUIRED = `email should not be blank`;
 export const PASSWORD_REQUIRED = `password should not be blank`;
 
 export const AGREE_WITH_PROTOCAL = `please agree with the protocal`;
+
+export const SIGN_UP_SUCCESS = `Sign up success, jumping to signin page`;
+
+export const SIGN_IN_SUCCESS = `Sign in success,jumping back`;

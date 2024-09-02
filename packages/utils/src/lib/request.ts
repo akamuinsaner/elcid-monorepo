@@ -41,7 +41,7 @@ export const request = <T>(path: string, options: any): Promise<T> => {
                 return res.json();
             })
             .then(res => {
-                if (res.code === 0) {
+                if (res.status) {
                     return res.data;
                 } else {
                     throw new Error(res.message);

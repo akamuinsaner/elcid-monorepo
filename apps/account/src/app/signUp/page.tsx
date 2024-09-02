@@ -19,7 +19,7 @@ import { useRef, useState } from 'react';
 import { REGEX, MESSAGE } from '@elcid-monorepo/constants';
 import { twMerge } from 'tailwind-merge';
 import classNames from 'classnames';
-import { account } from '@elcid-monorepo/apis';
+import { accountApi } from '@elcid-monorepo/apis';
 
 const PASSWORD_RULES = [
     {
@@ -46,6 +46,7 @@ const SignUp = () => {
     const [agreed, setAgreed] = useState<boolean>(false);
     const [password, setPassword] = useState<string>('');
     const form = useRef(useForm());
+    const signInRef = useRef<HTMLAnchorElement>(null);
 
     const onSubmit = () => {
         form.current.validates(async (errors, values) => {
@@ -54,7 +55,14 @@ const SignUp = () => {
                 message.warning(MESSAGE.AGREE_WITH_PROTOCAL);
                 return;
             }
-            const response = await account.auth.signUp(values);
+            const data = await accountApi.auth.signUp(values);
+            if (data) {
+                message.success(MESSAGE.SIGN_UP_SUCCESS, {
+                    onClose() {
+                        signInRef.current && signInRef.current.click();
+                    },
+                });
+            }
         });
     };
 
@@ -176,6 +184,7 @@ const SignUp = () => {
                             name='Sign in'
                             aria-label='Sign in'
                             href='/signIn'
+                            ref={signInRef}
                         >
                             Sign in
                         </Link>{' '}

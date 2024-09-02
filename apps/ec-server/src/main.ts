@@ -7,6 +7,7 @@ import { Logger, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import csurf from 'csurf';
 import { AppModule } from './app/app.module';
+import { ResponseInterceptor } from './response.interceptor';
 
 async function bootstrap() {
     const app = await NestFactory.create(AppModule);
@@ -17,7 +18,7 @@ async function bootstrap() {
         methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTION'],
         origin: [process.env.ACCOUNT_ORIGIN],
     });
-
+    app.useGlobalInterceptors(new ResponseInterceptor());
     app.useGlobalPipes(
         new ValidationPipe({
             transform: true,

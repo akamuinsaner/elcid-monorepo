@@ -1,6 +1,7 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { UsersService } from '../users/users.service';
 import { JwtService } from '@nestjs/jwt';
+import { hashPassword } from '@elcid-monorepo/utils';
 
 @Injectable()
 export class AuthService {
@@ -14,7 +15,8 @@ export class AuthService {
         pwd: string,
     ): Promise<{ access_token: string }> {
         const user = await this.usersService.findByEmail(email);
-        if (user?.password !== pwd) {
+        const hashedPwd = await hashPassword(pwd);
+        if (user?.password !== hashedPwd) {
             throw new UnauthorizedException();
         }
         const payload = { sub: user.id, email: user.email };
