@@ -15,28 +15,29 @@ import {
     RiEyeLine,
 } from '@remixicon/react';
 import { useForm } from 'packages/widgets/src/lib/Form/useForm';
-import { memo, useCallback, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { REGEX, MESSAGE } from '@elcid-monorepo/constants';
 import { twMerge } from 'tailwind-merge';
 import classNames from 'classnames';
+import { account } from '@elcid-monorepo/apis';
 
 const PASSWORD_RULES = [
     {
         rule: '8 - 64 characters ',
-        validator: (pwd: string) => /^.{8,64}$/.test(pwd),
+        validator: (pwd: string) => /.{8,64}/.test(pwd),
     },
     {
         rule: 'One uppercase letter',
-        validator: (pwd: string) => /^[A-Z]$/.test(pwd),
+        validator: (pwd: string) => /[A-Z]/.test(pwd),
     },
     {
         rule: 'One lowercase letter',
-        validator: (pwd: string) => /^[a-z]$/.test(pwd),
+        validator: (pwd: string) => /[a-z]/.test(pwd),
     },
-    { rule: 'One number', validator: (pwd: string) => /^[0-9]$/.test(pwd) },
+    { rule: 'One number', validator: (pwd: string) => /[0-9]/.test(pwd) },
     {
         rule: 'One special character (e.g., ! @ # $ % ^ & *)',
-        validator: (pwd: string) => /^[\!\@\#\$\%\^\&\*]$/.test(pwd),
+        validator: (pwd: string) => /[\!\@\#\$\%\^\&\*_]/.test(pwd),
     },
 ];
 
@@ -46,16 +47,16 @@ const SignUp = () => {
     const [password, setPassword] = useState<string>('');
     const form = useRef(useForm());
 
-    const onSubmit = useCallback(() => {
-        if (!agreed) {
-            message.warning(MESSAGE.AGREE_WITH_PROTOCAL);
-            return;
-        }
-        form.current.validates((errors, values) => {
+    const onSubmit = () => {
+        form.current.validates(async (errors, values) => {
             if (errors) return;
-            console.log(values);
+            if (!agreed) {
+                message.warning(MESSAGE.AGREE_WITH_PROTOCAL);
+                return;
+            }
+            const response = await account.auth.signUp(values);
         });
-    }, [agreed]);
+    };
 
     return (
         <MessageProvider>
@@ -193,4 +194,4 @@ const SignUp = () => {
     );
 };
 
-export default memo(SignUp);
+export default SignUp;

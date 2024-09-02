@@ -15,6 +15,10 @@
         "skipDefaultLibCheck": true,
         "baseUrl": ".",
         "paths": {
+            "@elcid-monorepo/api": ["packages/api/src/index.ts"],
+            "@elcid-monorepo/api/server": ["packages/api/src/server.ts"],
+            "@elcid-monorepo/apis": ["packages/apis/src/index.ts"],
+            "@elcid-monorepo/apis/server": ["packages/apis/src/server.ts"],
             "@elcid-monorepo/constants": ["packages/constants/src/index.ts"],
             "@elcid-monorepo/constants/server": [
                 "packages/constants/src/server.ts"

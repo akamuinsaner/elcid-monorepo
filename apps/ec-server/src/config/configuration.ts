@@ -1,5 +1,5 @@
 import { SequelizeModuleOptions } from '@nestjs/sequelize';
-import { User } from '../user/entities/user.entity';
+import { User } from '../users/entities/user.entity';
 
 const configuration: {
     port: number;
