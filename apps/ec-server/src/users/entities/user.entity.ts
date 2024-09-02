@@ -20,8 +20,8 @@ import { LENGTH, MESSAGE } from '@elcid-monorepo/constants';
 export class User extends Model {
     @PrimaryKey
     @AutoIncrement
-    @Column(DataType.BIGINT)
-    id!: number;
+    @Column(DataType.INTEGER)
+    id: number;
 
     @Unique({
         msg: MESSAGE.EMAIL_UNIQUE_MSG,

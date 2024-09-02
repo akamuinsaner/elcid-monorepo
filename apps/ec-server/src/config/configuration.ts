@@ -7,13 +7,12 @@ const configuration: {
 } = {
     port: parseInt(process.env.PORT as string, 10) || 3000,
     database: {
-        dialect: 'postgres' as const,
+        dialect: 'postgres',
         host: process.env.DATABASE_HOST,
         port: parseInt(process.env.DATABASE_PORT, 10) || 5432,
         username: process.env.DATABASE_USER,
         password: process.env.DATABASE_PASSWORD,
         database: process.env.DATABASE_NAME,
-        autoLoadModels: true,
         models: [User],
     },
 };

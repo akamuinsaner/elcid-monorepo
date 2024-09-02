@@ -12,7 +12,7 @@ export class UsersService {
         private userModel: typeof User,
     ) {}
 
-    create(createUserDto: CreateUserDto) {
+    async create(createUserDto: CreateUserDto) {
         return this.userModel.create(instanceToPlain(createUserDto));
     }
 

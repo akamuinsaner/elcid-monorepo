@@ -13,6 +13,7 @@ import { AuthGuard } from './auth.guard';
 import { User } from '../users/entities/user.entity';
 import { hashPassword } from '@elcid-monorepo/utils';
 import { UsersService } from '../users/users.service';
+import { Public } from './public';
 
 @Controller('auth')
 export class AuthController {
@@ -21,6 +22,7 @@ export class AuthController {
         private usersService: UsersService,
     ) {}
 
+    @Public()
     @HttpCode(HttpStatus.OK)
     @Post('signin')
     signIn(@Body() signInDto: Record<string, any>) {
@@ -33,10 +35,11 @@ export class AuthController {
         return req.user;
     }
 
+    @Public()
     @Post('signup')
     async signUp(@Body() signUpDto: Pick<User, 'email' | 'password'>) {
         const encryptedPwd = await hashPassword(signUpDto.password);
-        this.usersService.create({
+        return this.usersService.create({
             email: signUpDto.email,
             password: encryptedPwd,
         });
