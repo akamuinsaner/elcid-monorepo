@@ -1,4 +1,5 @@
-import { Form, FormItem, Input } from '@elcid-monorepo/widgets';
+import { Form, FormItem, Input, Select, Option } from '@elcid-monorepo/widgets';
+import DeliveryMethods from './DeliveryMethod';
 
 const CheckoutForm = () => {
     return (
@@ -21,11 +22,15 @@ const CheckoutForm = () => {
                     Shipping Information
                 </h2>
                 <FormItem label='Country/Region' name='country'>
-                    <Input
+                    <Select
                         placeholder='user@example.com'
                         id='country'
                         aria-labelledby='country'
-                    />
+                    >
+                        <Option value='1'>United States</Option>
+                        <Option value='2'>China</Option>
+                        <Option value='3'>Japan</Option>
+                    </Select>
                 </FormItem>
                 <div className='flex flex-col gap-6 tablet:flex-row tablet:gap-8'>
                     <FormItem
@@ -76,11 +81,15 @@ const CheckoutForm = () => {
                         />
                     </FormItem>
                     <FormItem label='State' name='state' className='flex-1'>
-                        <Input
+                        <Select
                             placeholder='State'
                             id='state'
                             aria-labelledby='state'
-                        />
+                        >
+                            <Option value='1'>1</Option>
+                            <Option value='2'>2</Option>
+                            <Option value='3'>3</Option>
+                        </Select>
                     </FormItem>
                     <FormItem label='Zip' name='zip' className='flex-1'>
                         <Input
@@ -96,6 +105,9 @@ const CheckoutForm = () => {
                 <h2 className='text-lg text-secondary font-medium'>
                     Delivery Method
                 </h2>
+                <FormItem name='delivery' className='w-full'>
+                    <DeliveryMethods />
+                </FormItem>
             </div>
             <div className='w-full border-t border-primary border-solid my-10'></div>
             <div className='flex flex-col gap-6'>
