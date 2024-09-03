@@ -168,7 +168,12 @@ const FormItem: FormItemComponent<FormItemProps> = ({
 
     return (
         <div className={wrapperClasses}>
-            <label className={labelClasses} htmlFor={name} aria-label={name}>
+            <label
+                className={labelClasses}
+                htmlFor={name}
+                aria-label={name}
+                hidden={!label}
+            >
                 {label}
             </label>
             {preChildren}
