@@ -42,6 +42,7 @@ export type FormItemProps = {
     disabled?: boolean;
     labelPosition?: 'top' | 'right' | 'bottom' | 'left';
     labelClassName?: string;
+    className?: string;
 };
 
 export type FormItemComponent<T> = React.FunctionComponent<T>;
@@ -56,6 +57,7 @@ const FormItem: FormItemComponent<FormItemProps> = ({
     disabled,
     labelPosition = 'top',
     labelClassName,
+    className,
 }) => {
     const context = useContext<RTFormContext>(FormContext);
 
@@ -155,6 +157,7 @@ const FormItem: FormItemComponent<FormItemProps> = ({
             'flex-col-reverse items-end': labelPosition === 'bottom',
             'flex-row justify-start': labelPosition === 'left',
         }),
+        className,
     );
 
     const errorClasses = twMerge('text-sm text-error');
