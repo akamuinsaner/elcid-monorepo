@@ -180,7 +180,7 @@ const FormItem: FormItemComponent<FormItemProps> = ({
                 {label}
             </label>
             {preChildren}
-            {error ? <span className={errorClasses}>{error}</span> : null}
+            {!!error ? <span className={errorClasses}>{error}</span> : null}
         </div>
     );
 };

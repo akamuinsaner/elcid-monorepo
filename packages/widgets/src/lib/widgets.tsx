@@ -31,6 +31,9 @@ import Stepper from './Stepper';
 
 import { message, MessageProvider } from './Message';
 
+import Select from './Select';
+import Option from './Select/Option';
+
 export {
     Button,
     IconButton,
@@ -51,4 +54,6 @@ export {
     Stepper,
     message,
     MessageProvider,
+    Select,
+    Option,
 };

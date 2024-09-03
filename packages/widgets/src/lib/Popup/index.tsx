@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import {
+    CSSProperties,
     HTMLProps,
     ReactNode,
     useEffect,
@@ -20,6 +21,7 @@ export interface NTAPopup extends HTMLProps<HTMLDivElement> {
     children: ReactNode;
     anchor: HTMLElement;
     wrapperId?: string;
+    style?: CSSProperties;
     placement?:
         | 'top'
         | 'bottom'
@@ -43,6 +45,7 @@ const Popup = ({
     anchor,
     className,
     wrapperId,
+    style,
     ...props
 }: NTAPopup) => {
     const baseClasses = useMemo(() => {
@@ -137,7 +140,7 @@ const Popup = ({
             ref={boxRef}
             className={boxClasses}
             onTransitionEnd={onDropboxTransitionEnd}
-            style={{ inset: insetStyle }}
+            style={{ inset: insetStyle, ...style }}
             aria-hidden={!open}
             {...props}
         >
