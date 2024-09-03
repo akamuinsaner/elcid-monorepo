@@ -24,6 +24,7 @@ const Input = forwardRef<HTMLSpanElement, NTAInput>(
             onChange = () => {},
             inputRef,
             suffix,
+            prefix,
             ...props
         },
         ref,
@@ -71,6 +72,13 @@ const Input = forwardRef<HTMLSpanElement, NTAInput>(
             }
         }, [value, props.defaultValue]);
 
+        const addOnBefore = useMemo(() => {
+            if (!prefix) return null;
+            return cloneElement(prefix, {
+                className: twMerge(styles.icon.base, prefix.props?.className),
+            });
+        }, [prefix]);
+
         const addOnAfter = useMemo(() => {
             if (!suffix) return null;
             return cloneElement(suffix, {
@@ -86,6 +94,7 @@ const Input = forwardRef<HTMLSpanElement, NTAInput>(
                 onFocus={() => setFocusing(true)}
                 onBlur={() => setFocusing(false)}
             >
+                {addOnBefore}
                 <input
                     {...props}
                     value={val}
