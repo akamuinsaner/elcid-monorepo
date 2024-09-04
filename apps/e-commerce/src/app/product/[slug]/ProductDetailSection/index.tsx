@@ -2,7 +2,15 @@ import ImageGallery from './ImageGallery';
 import InfoPanel from './InfoPanel';
 import { State } from '../store';
 
-const ProductDetailSection = ({ product }: { product: State['product'] }) => {
+const ProductDetailSection = ({
+    product,
+    reviewOpen,
+    updateReviewOpen,
+}: {
+    product: State['product'];
+    reviewOpen: boolean;
+    updateReviewOpen: (open: boolean) => void;
+}) => {
     return (
         <section className='px-3 py-12 tablet:px-4 tablet:py-16 desktop:px-24 desktopp:py-24 flex flex-col'>
             <div className='flex flex-col gap-12 desktop:flex-row desktop:gap-8'>
@@ -41,7 +49,11 @@ const ProductDetailSection = ({ product }: { product: State['product'] }) => {
                     ]}
                 />
                 <div className='flex flex-col gap-10 flex-1 shrink-0 desktop:w-[592px]'>
-                    <InfoPanel product={product} />
+                    <InfoPanel
+                        product={product}
+                        reviewOpen={reviewOpen}
+                        updateReviewOpen={updateReviewOpen}
+                    />
                 </div>
             </div>
         </section>

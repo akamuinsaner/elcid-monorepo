@@ -3,6 +3,7 @@ import { State } from './state';
 export enum EActions {
     'updateProduct',
     'updateActiveSpe',
+    'updateReviewOpen',
 }
 
 export interface Action<T> {
@@ -24,6 +25,15 @@ export const updateActiveSpeAction = (
 ): Action<State['activeSpe']> => {
     return {
         type: EActions['updateActiveSpe'],
+        value,
+    };
+};
+
+export const updateReviewOpenAction = (
+    value: State['reviewOpen'],
+): Action<State['reviewOpen']> => {
+    return {
+        type: EActions['updateReviewOpen'],
         value,
     };
 };

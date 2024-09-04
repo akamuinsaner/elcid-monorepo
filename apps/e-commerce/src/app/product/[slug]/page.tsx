@@ -6,6 +6,7 @@ import {
     reducer,
     updateProductAction,
     updateActiveSpeAction,
+    updateReviewOpenAction,
     State,
 } from './store';
 import SubscribeSection from 'packages/ui/src/lib/e-commerce/SubscribeSection';
@@ -20,6 +21,9 @@ const ProductDetailPage = () => {
 
     const updateActiveSpe = (active: State['activeSpe']) =>
         dispatch(updateActiveSpeAction(active));
+
+    const updateReviewOpen = (open: State['reviewOpen']) =>
+        dispatch(updateReviewOpenAction(open));
 
     useEffect(() => {
         updateProduct({
@@ -98,7 +102,11 @@ const ProductDetailPage = () => {
     if (!state.product) return;
     return (
         <div>
-            <ProductDetailSection product={state.product} />
+            <ProductDetailSection
+                product={state.product}
+                reviewOpen={state.reviewOpen}
+                updateReviewOpen={updateReviewOpen}
+            />
             <Specification
                 active={state.activeSpe}
                 updateActiveSpe={updateActiveSpe}

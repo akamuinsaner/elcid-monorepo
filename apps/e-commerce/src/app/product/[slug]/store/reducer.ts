@@ -7,6 +7,8 @@ export const reducer = (state: State, action: Action<any>): State => {
             return { ...state, product: action.value };
         case EActions['updateActiveSpe']:
             return { ...state, activeSpe: action.value };
+        case EActions['updateReviewOpen']:
+            return { ...state, reviewOpen: action.value };
         default:
             return state;
     }

@@ -1,4 +1,9 @@
-export { EActions, updateProductAction, updateActiveSpeAction } from './action';
+export {
+    EActions,
+    updateProductAction,
+    updateActiveSpeAction,
+    updateReviewOpenAction,
+} from './action';
 export type { Action } from './action';
 
 export { initialState } from './state';

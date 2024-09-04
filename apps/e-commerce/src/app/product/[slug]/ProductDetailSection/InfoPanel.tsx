@@ -5,6 +5,8 @@ import { RiAddCircleLine, RiIndeterminateCircleLine } from '@remixicon/react';
 import classNames from 'classnames';
 import { useState } from 'react';
 import { twMerge } from 'tailwind-merge';
+import ReviewModal from './ReviewModal';
+import { State } from '../store';
 
 const FEATURES = [
     {
@@ -36,7 +38,15 @@ const FEATURES = [
     },
 ];
 
-const InfoPanel = ({ product }: { product: ECommerce.Product.IProduct }) => {
+const InfoPanel = ({
+    product,
+    reviewOpen,
+    updateReviewOpen,
+}: {
+    product: ECommerce.Product.IProduct;
+    reviewOpen: State['reviewOpen'];
+    updateReviewOpen: (open: boolean) => void;
+}) => {
     const [featureExpand, setFeatureExpand] = useState<number[]>(
         new Array(FEATURES.length).fill(0).map((_, i) => i),
     );
@@ -78,7 +88,8 @@ const InfoPanel = ({ product }: { product: ECommerce.Product.IProduct }) => {
                         <Link
                             name='see reviews'
                             aria-label='see reviews'
-                            className='font-medium text-xm'
+                            className='font-medium text-xm text-brand hover:text-brand focus:text-brand'
+                            onClick={() => updateReviewOpen(true)}
                         >
                             See all 62 views
                         </Link>
@@ -201,6 +212,10 @@ const InfoPanel = ({ product }: { product: ECommerce.Product.IProduct }) => {
                     );
                 })}
             </ul>
+            <ReviewModal
+                open={reviewOpen}
+                onClose={() => updateReviewOpen(false)}
+            />
         </div>
     );
 };
