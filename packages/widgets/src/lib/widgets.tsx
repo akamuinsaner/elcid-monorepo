@@ -34,6 +34,11 @@ import { message, MessageProvider } from './Message';
 import Select from './Select';
 import Option from './Select/Option';
 
+import Modal from './Modal';
+import ModalHeader from './Modal/ModaHeader';
+import ModalBody from './Modal/ModalBody';
+import ModalFooter from './Modal/ModalFooter';
+
 export {
     Button,
     IconButton,
@@ -56,4 +61,8 @@ export {
     MessageProvider,
     Select,
     Option,
+    Modal,
+    ModalHeader,
+    ModalBody,
+    ModalFooter,
 };

@@ -1,6 +1,6 @@
 import { CSSProperties, HTMLProps } from 'react';
 
-export interface TDrawer extends HTMLProps<HTMLDivElement> {
+export interface NTADrawer extends HTMLProps<HTMLDivElement> {
     open: boolean;
     onClose: () => void;
     maskClassName?: string;

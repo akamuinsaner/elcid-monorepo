@@ -97,7 +97,11 @@ const Message = () => {
     if (!wrapper) return null;
 
     return createPortal(
-        <div className={boxClassName} onTransitionEnd={onTransitionEnd}>
+        <div
+            className={boxClassName}
+            onTransitionEnd={onTransitionEnd}
+            role='alert'
+        >
             <div className={styles.badge.base}>Error</div>
             <div className='flex-1'>{messageInfo?.content}</div>
         </div>,
