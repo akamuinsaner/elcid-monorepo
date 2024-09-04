@@ -2,6 +2,7 @@ import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { UsersService } from '../users/users.service';
 import { JwtService } from '@nestjs/jwt';
 import { hashPassword } from '@elcid-monorepo/utils';
+import { User } from '../users/entities/user.entity';
 
 @Injectable()
 export class AuthService {
@@ -13,7 +14,7 @@ export class AuthService {
     async signIn(
         email: string,
         pwd: string,
-    ): Promise<{ access_token: string }> {
+    ): Promise<{ token: string; userInfo: User }> {
         const user = await this.usersService.findByEmail(email);
         const hashedPwd = await hashPassword(pwd);
         if (user?.password !== hashedPwd) {
@@ -22,7 +23,8 @@ export class AuthService {
         const payload = { sub: user.id, email: user.email };
 
         return {
-            access_token: await this.jwtService.signAsync(payload),
+            userInfo: user,
+            token: await this.jwtService.signAsync(payload),
         };
     }
 }
