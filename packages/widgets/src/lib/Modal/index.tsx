@@ -6,6 +6,8 @@ import { createPortal } from 'react-dom';
 import { styles as drawerStyles } from '../Drawer/styles';
 import { twMerge } from 'tailwind-merge';
 import { styles } from './styles';
+import { RiCloseLine } from '@remixicon/react';
+import { Link } from '../widgets';
 
 const Modal = forwardRef<HTMLDivElement, NTAModal>(
     (
@@ -63,6 +65,14 @@ const Modal = forwardRef<HTMLDivElement, NTAModal>(
                     role='dialog'
                 >
                     {children}
+                    <Link
+                        className={styles.closeLink}
+                        name='close'
+                        aria-label='close'
+                        onClick={onClose}
+                    >
+                        <RiCloseLine className={styles.closeIcon} />
+                    </Link>
                 </div>
             </div>,
             wrapper,
