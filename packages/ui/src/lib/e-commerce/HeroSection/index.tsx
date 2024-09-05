@@ -2,15 +2,15 @@ import { Button } from '@elcid-monorepo/widgets';
 
 const HeroSection = () => {
     return (
-        <section className='px-3 tablet:px-4 desktop:px-24 py-12 tablet:py-16 desktop:py-24 flex flex-col gap-12 tablet:gap-8 desktop:flex-row desktop:items-center'>
+        <section className='relative px-3 tablet:px-4 desktop:px-24 py-12 tablet:py-16 desktop:py-24 flex flex-col gap-12 tablet:gap-8 desktop:flex-row desktop:items-center transition-all'>
             <div>
                 <h1
                     role='heading'
-                    className='text-primary text-4xl tablet:text-5xl desktop:text-6xl font-semibold mb-4 tablet:mb-6'
+                    className='text-primary text-4xl tablet:text-5xl desktop:text-6xl font-semibold mb-4 tablet:mb-6 transition-all'
                 >
                     Summer styles are finally here
                 </h1>
-                <p className='text-secondary text-lg tablet:text-xl mb-8 tablet:mb-16'>
+                <p className='text-secondary text-lg tablet:text-xl mb-8 tablet:mb-16 transition-all'>
                     This year, our new summer collection will be your haven from
                     the world's harsh elements.
                 </p>
@@ -22,7 +22,7 @@ const HeroSection = () => {
                     Shop now
                 </Button>
             </div>
-            <div className='w-full desktop:w-[696px] shrink-0 tablet:max-w-[704px]'>
+            <div className='w-full desktop:w-[696px] shrink-0 tablet:max-w-[704px] transition-all'>
                 <img
                     src='/hero.webp'
                     alt='hero'
