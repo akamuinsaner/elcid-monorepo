@@ -29,7 +29,7 @@ const Drawer = forwardRef<HTMLDivElement, NTADrawer>(
 
         const close = useCallback(() => {
             setClasses(twMerge(styles.base, className));
-            setMaskClasses(twMerge(styles.mask.base, styles.mask.active));
+            setMaskClasses(twMerge(styles.mask.base, maskClassName));
         }, []);
 
         const { wrapper, setWrapper } = useWrapper({
