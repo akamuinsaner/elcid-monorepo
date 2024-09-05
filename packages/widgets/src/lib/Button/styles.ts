@@ -1,5 +1,5 @@
 export const styles = {
-    base: 'flex items-center outline-none bg-transparent border-none rounded shadow font-medium justify-center',
+    base: 'flex items-center outline-none bg-transparent border-none rounded shadow font-medium justify-center transition-all',
     varaint: {
         primary:
             'text-primary-invert bg-brand-primary hover:bg-brand-primary-emphasize focus:bg-brand-primary-emphasize focus:ring-4 focus:ring-brand-solid/[.12]',
@@ -33,7 +33,7 @@ export const styles = {
         },
     },
     link: {
-        base: 'inline-flex items-center text-secondary hover:text-primary focus:text-primary focus:ring-4 focus:ring-brand-solid/[.12] font-medium rounded outline-none justify-center',
+        base: 'inline-flex items-center text-secondary hover:text-primary focus:text-primary focus:ring-4 focus:ring-brand-solid/[.12] font-medium rounded outline-none justify-center transition-all',
         size: {
             sm: 'text-sm',
             md: 'text-base',

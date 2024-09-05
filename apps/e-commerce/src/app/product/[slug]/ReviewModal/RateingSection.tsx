@@ -16,7 +16,7 @@ const RatingSection = ({
     setRating: (rating: number) => void;
 }) => {
     return (
-        <div className='px-3 flex flex-col gap-6'>
+        <div className='absolute top-0 left-0 w-full px-3 flex flex-col gap-6 tablet:px-8 desktop:w-[382px] transition-all'>
             <div>
                 <h2 className='text-xl text-primary font-semibold mb-2'>
                     Overall Rating
@@ -34,7 +34,10 @@ const RatingSection = ({
                 <ul className='flex flex-col py-4 gap-4'>
                     {RATINGS.map(item => {
                         return (
-                            <li className='flex items-center gap-2'>
+                            <li
+                                className='flex items-center gap-2'
+                                key={item.name}
+                            >
                                 <div className='whitespace-nowrap shrink-0 font-medium text-base text-disabled	min-w-[120px]'>
                                     {item.name}
                                 </div>
@@ -57,6 +60,7 @@ const RatingSection = ({
                 aria-label='Write a review'
                 variant='secondary'
                 size='lg'
+                className='w-full tablet:w-[152px] block mx-auto'
             >
                 Write a review
             </Button>
