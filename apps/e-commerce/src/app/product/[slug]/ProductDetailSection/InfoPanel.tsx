@@ -5,7 +5,7 @@ import { RiAddCircleLine, RiIndeterminateCircleLine } from '@remixicon/react';
 import classNames from 'classnames';
 import { useState } from 'react';
 import { twMerge } from 'tailwind-merge';
-import ReviewModal from './ReviewModal';
+import ReviewModal from '../ReviewModal';
 import { State } from '../store';
 
 const FEATURES = [
